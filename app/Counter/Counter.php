@@ -8,16 +8,17 @@ namespace App\Counter;
 
 class Counter
 {
-    private int $count = 0;
+    private int $total = 0;
 
-    public function increment()
+    public function increment() : Counter
     {
-        $this->count += 1;
+        $this->total += 1;
+        return $this;
     }
 
     public function count() : int
     {
-        return $this->count;
+        return $this->total;
     }
 
 }
