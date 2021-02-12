@@ -12,6 +12,8 @@ class Library
 
     public function __construct()
     {
+        // sets $shelves property as a collection
+        // we do this in the constructor as we can't set an object instance as a default value
         $this->shelves = collect();
     }
 
@@ -21,11 +23,13 @@ class Library
         return $this;
     }
 
-    public function title() : array
+    public function titles() : array
     {
+        // can use flatMap() or use map() then flatten() or use reduce() to return a single array (flat) rather than 2 arrays in an array which would be what's returned with just map()
+
         return $this->shelves->map(function ($shelf) {
             return $shelf->titles();
-        })->all();
+        })->flatten()->all();
     }
 
 }

@@ -13,6 +13,7 @@ class Shelf
     public function __construct()
     {
         // sets $books property as a collection
+        // can't set an object instance as a default value
         $this->books = collect();
     }
 
