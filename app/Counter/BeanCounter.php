@@ -8,23 +8,26 @@ namespace App\Counter;
 
 class BeanCounter
 {
-    private $total;
+    // this property is a counter object...
+    private $counter;
 
+    // ...which was passed in here
     public function __construct(Counter $counterArg)
     {
-        $this->total = $counterArg;
+        $this->counter = $counterArg;
     }
 
     public function addBean() : BeanCounter
     {
-        $this->total->increment();
+        // we can now call the methods on the counter object...
+        $this->counter->increment();
         return $this;
     }
 
     public function howMany() : int
     {
-        return $this->total->count();
+        // here we call another counter method...
+        return $this->counter->count();
     }
-
 
 }
